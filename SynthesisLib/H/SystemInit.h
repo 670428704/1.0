@@ -7,4 +7,5 @@
 
 void toneListInit(char *TonePath, unsigned char *stateList[128][6] );
 
-#endif //INC_1_0_SYSTEMINIT_H
+#endif
+//INC_1_0_SYSTEMINIT_H
