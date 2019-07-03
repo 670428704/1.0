@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 
+=======
+//
+// Created by Administrator on 2019/7/2.
+//
+
+//
+// Created by Administrator on 2019/7/2.
+//
+>>>>>>> 5f6579119153c62f3a7b6e1c8fcaa81049ee6f8b
 
 #include <stdio.h>
 #include "io.h"
@@ -51,4 +61,8 @@ char * dirSearch(char path[128] )
     while(_findnext(handle,&fa) == 0); /* 成功找到时返回0*/
     _findclose(handle);
     return 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5f6579119153c62f3a7b6e1c8fcaa81049ee6f8b
