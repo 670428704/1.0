@@ -17,6 +17,7 @@ int dirSearch(char *path);
 
 
 
+
 // 获取音色库的所有信息
 void toneListInit(char *TonePath, unsigned char *stateList[128][6] )
 {
@@ -48,7 +49,7 @@ void toneListInit(char *TonePath, unsigned char *stateList[128][6] )
         ToneLibPath  = connect(ToneListPath,".toneLib" ); // 获取音色库文件
 
         //第一步 读取音色库的引导文件，获取音色库的信息
-        
+
 
 
         printf("%s\n",ToneListPath );
