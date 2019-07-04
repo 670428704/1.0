@@ -9,7 +9,7 @@
 #include "io.h"
 #include "../H/SystemInit.h"
 #include <string.h>
-
+#include "../H/cJSON.h"
 
 
 char fileName[64][256];
@@ -54,16 +54,21 @@ void toneListInit(char *TonePath, unsigned char *stateList[128][6] )
         FILE *fp;            /*文件指针*/
         char buf[256000];  /*缓冲区*/
         int len;             /*行字符个数*/
-
+        cJSON* cjson;
+        char * pch;
 
         fp = fopen(ToneListPath,"r");
-
-
         while(fgets(buf,256*1024,fp) != NULL)
         {
             len = strlen(buf);
-            buf[len-1] = '}';  /*去掉换行符*/
-            printf("%s %d \n",buf,len - 1);
+            buf[len-1] = '\0';  /*去掉换行符*/
+            pch = strtok(buf, "}");
+            while (pch != NULL)
+            {
+                printf("%s\n", pch);
+                pch = strtok(NULL, "}");
+
+            }
         }
 
         printf("%s\n",ToneListPath );
