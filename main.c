@@ -1,7 +1,7 @@
 #include <stdio.h>
 //#include "SynthesisLib/H/SystemInit.h"
 #include "./SynthesisLib/H/SystemInit.h"
-
+#include "./SynthesisLib/H/cJSON.h"
 
 int main()
 {

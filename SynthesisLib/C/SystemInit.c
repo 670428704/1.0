@@ -44,14 +44,27 @@ void toneListInit(char *TonePath, unsigned char *stateList[128][6] )
     {
         if(fileName[i][0]=='\0') break;
         programToneList = connect(TonePath,fileName[i] );
-        ToneListPath = connect(programToneList,"/" );
-        ToneListPath = connect(ToneListPath,fileName[i] );
-        ToneListPath = connect(ToneListPath,".toneLibList" ); // 获取音色库引导文件的路径
-        ToneLibPath  = connect(ToneListPath,".toneLib" ); // 获取音色库文件
+        programToneList = connect(programToneList,"/" );
+        programToneList = connect(programToneList,fileName[i] );
+        ToneListPath = connect(programToneList,".toneLibList" ); // 获取音色库引导文件的路径
+        ToneLibPath  = connect(programToneList,".toneLib" ); // 获取音色库文件
 
         //第一步 读取音色库的引导文件，获取音色库的信息
 
+        FILE *fp;            /*文件指针*/
+        char buf[256000];  /*缓冲区*/
+        int len;             /*行字符个数*/
 
+
+        fp = fopen(ToneListPath,"r");
+
+
+        while(fgets(buf,256*1024,fp) != NULL)
+        {
+            len = strlen(buf);
+            buf[len-1] = '}';  /*去掉换行符*/
+            printf("%s %d \n",buf,len - 1);
+        }
 
         printf("%s\n",ToneListPath );
         printf("%s\n",ToneLibPath );
